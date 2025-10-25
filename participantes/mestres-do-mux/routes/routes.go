@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"hackathon-api/controllers"
+	"mestres-do-mux/controllers"
 )
 
 func RegisterRoutes(r *gin.Engine)
