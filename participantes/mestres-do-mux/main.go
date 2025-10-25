@@ -21,6 +21,11 @@ func main (){
 
 	//roda o servidor
 	r.Run(":" + port)
+	
+	if os.Getenv("OPENROUTER_API_KEY") == "" {
+	log.Fatal("OPENROUTER_API_KEY não definida")
+	}
+
 }
 
 /*
