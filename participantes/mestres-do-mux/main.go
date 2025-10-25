@@ -2,7 +2,7 @@ package mestresdomux
 
 import (
 	"github.com/gin-gonic/gin"
-	"routes"
+	"findservice/routes"
 	"os"
 )
 
