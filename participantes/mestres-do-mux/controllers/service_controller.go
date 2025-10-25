@@ -1,23 +1,24 @@
 package controllers
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-//Estrutura para o corpo da requisição POST /api/find-service
+// Estrutura para o corpo da requisição POST /api/find-service
 type FindServiceRequest struct {
 	Intent string `json:"Intent"`
 }
 
-//Estrutura de resposta padrão
+// Estrutura de resposta padrão
 type FindServiceResponse struct {
-	Success	bool		`json:"sucess"`
-	Data	interface{}	`json:"data"`
-	Error	string		`json:"error"`
+	Success bool        `json:"sucess"`
+	Data    interface{} `json:"data"`
+	Error   string      `json:"error"`
 }
 
-//GET /api/healthz
+// GET /api/healthz
 func HealthCheck(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "ok"})
 }
@@ -28,22 +29,21 @@ func FindService(c *gin.Context) {
 
 	// Tenta decodificar o JSON recebido
 	if err := c.ShouldBindJSON(&req); err != nil {
-		C.JSON(http.StatusBadRequest, FindServiceResponse{
+		c.JSON(http.StatusBadRequest, FindServiceResponse{
 			Success: false,
-			Error: "Invalid request body",
+			Error:   "Invalid request body",
 		})
 		return
 	}
 
-
-// Por enquanto, uma resposta simulada (placeholder)
-c.JSON(http.StatusOk, FindServiceResponse{
-	Success: true,
-	Data: gin.H{
-		"service_id": 1,
-		"service_name": "Consulta Limite",
-	},
-	Error: "",
-})
+	// Por enquanto, uma resposta simulada (placeholder)
+	c.JSON(http.StatusOK, FindServiceResponse{
+		Success: true,
+		Data: gin.H{
+			"service_id":   1,
+			"service_name": "Consulta Limite",
+		},
+		Error: "",
+	})
 
 }

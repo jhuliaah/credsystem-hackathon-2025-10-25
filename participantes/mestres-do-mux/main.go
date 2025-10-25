@@ -1,9 +1,11 @@
 package mestresdomux
 
 import (
-	"github.com/gin-gonic/gin"
 	"findservice/routes"
+	"log"
 	"os"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main (){
